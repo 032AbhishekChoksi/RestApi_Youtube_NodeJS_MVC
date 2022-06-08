@@ -1,19 +1,23 @@
-const http = require('http')
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-    if (req.url === '/') {
-        if (req.method === 'GET') {
-            console.log("It's a GET Method");
-        }
-        res.write("Your on Home Page");
-        res.end();
-    } else if (req.url === '/another') {
-        res.write("Your on Another Page");
-        res.end();
-    }
-})
+const app = express();
 
+app.get('/',(req,res,next)=>{
+    console.log(req.url);
+    console.log(req.method);
+    res.send('i am the home route');
+});
 
-server.listen(3000, () => {
+app.post('/',(req,res,next)=>{
+    console.log(req.url);
+    console.log(req.method);    
+});
+
+app.delete('/',(req,res,next)=>{
+    console.log(req.url);
+    console.log(req.method);
+});
+
+app.listen(3000,()=>{
     console.log('Server started on port 3000...');
 })
