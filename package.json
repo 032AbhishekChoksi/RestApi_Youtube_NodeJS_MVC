@@ -1,0 +1,11 @@
+{
+  "name": "restapi_youtube",
+  "version": "1.0.0",
+  "description": "YouTube Tutorial By yoursTRULY",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Abhishek Choksi",
+  "license": "ISC"
+}
