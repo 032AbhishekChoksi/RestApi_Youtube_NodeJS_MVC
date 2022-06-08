@@ -1,0 +1,14 @@
+### get a list of all products
+GET http://localhost:3000/products
+
+### add new product
+POSt http://localhost:3000/products
+
+### to get a single product by its id
+GET http://localhost:3000/products/id
+
+### to update a single product by its id
+PATCH http://localhost:3000/products/id
+
+### to delete a single product by its id
+DELETE  http://localhost:3000/products/id
