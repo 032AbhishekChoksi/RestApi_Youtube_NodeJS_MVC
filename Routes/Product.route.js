@@ -3,7 +3,8 @@ const router = express.Router();
 
 // get a list of all products
 router.get('/', (req, res, next) => {
-    res.send('getting a list of all products...');
+    next(new Error("cannot get a list of all products"))
+    // res.send('getting a list of all products...');
 });
 
 // add new product

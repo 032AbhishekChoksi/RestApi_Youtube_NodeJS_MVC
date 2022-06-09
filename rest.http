@@ -12,3 +12,6 @@ PATCH http://localhost:3000/products/id
 
 ### to delete a single product by its id
 DELETE  http://localhost:3000/products/id
+
+### Page Not Found 404 Error Handle
+GET http://localhost:3000/
