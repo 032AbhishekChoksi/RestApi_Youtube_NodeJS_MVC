@@ -15,3 +15,24 @@ DELETE  http://localhost:3000/products/id
 
 ### Page Not Found 404 Error Handle
 GET http://localhost:3000/
+
+### 
+GET http://localhost:3000/test?name=iMac&price=2399
+
+### 
+GET http://localhost:3000/test/8766565656/iMac
+
+###
+POST http://localhost:3000/test
+Content-Type: application/json
+
+{
+  "id": "8766565656",
+  "name": "iMac"
+}
+
+###
+POST http://localhost:3000/test
+Content-Type: application/x-www-form-urlencoded
+
+id=8766565656&name=imac

@@ -2,6 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 /*
 mongodb+srv://root:<password>@cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority
 */
@@ -17,6 +21,19 @@ mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/?retryWrites=true&w=m
 
 const ProductRoute = require('./Routes/Product.route');
 app.use('/products', ProductRoute);
+
+// app.all('/test/:id/:name',(req,res)=>{
+//     // console.log(req.query);
+//     // console.log(req.query.name);
+//     // res.send(req.query);
+//     console.log(req.params);
+//     res.send(req.params);
+// });
+
+app.all('/test',(req,res)=>{
+    console.log(req.body);
+    res.send(req.body);
+});
 
 app.use((req, res, next) => {
     const err = new Error('Page Not Found');
