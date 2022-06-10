@@ -1,6 +1,19 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
+/*
+mongodb+srv://root:<password>@cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority
+*/
+mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority/RestAPI_youtube', {
+    dbName:'RestAPI_youtube',
+    user:'root',
+    pass:'root',
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('MongoDB Connected...');
+});
 
 const ProductRoute = require('./Routes/Product.route');
 app.use('/products', ProductRoute);
