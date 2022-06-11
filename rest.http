@@ -3,6 +3,12 @@ GET http://localhost:3000/products
 
 ### add new product
 POSt http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "iPhone 12 Pro",
+  "price": 1149
+}
 
 ### to get a single product by its id
 GET http://localhost:3000/products/id

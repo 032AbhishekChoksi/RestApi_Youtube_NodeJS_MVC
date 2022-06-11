@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: true}));
 /*
 mongodb+srv://root:<password>@cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority
 */
-mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority/RestAPI_youtube', {
+mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/', {
     dbName:'RestAPI_youtube',
     user:'root',
     pass:'root',
