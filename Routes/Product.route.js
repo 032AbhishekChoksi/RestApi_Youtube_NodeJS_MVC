@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
     // next(new Error("cannot get a list of all products"))
     try {
         const products = await Product.find({}, { __v: 0 });
-        
+
         //// .find(query, projection)
         // const products = await Product.find({}, { name: 1, price: 1, _id: 0 });
         // const products = await Product.find({ price: 699 }, {});
@@ -46,8 +46,16 @@ router.post('/', async (req, res, next) => {
 });
 
 // to get a single product by its id
-router.get('/:id', (req, res, next) => {
-    res.send('get product by ID');
+router.get('/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const product = await Product.findById(id);
+        // const product = await Product.findOne({ _id: id });
+
+        res.send(product);
+    } catch (error) {
+        console.log(error.message);
+    }
 });
 
 // to update a single product by its id
