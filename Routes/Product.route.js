@@ -4,9 +4,18 @@ const router = express.Router();
 const Product = require('../Models/Product.model');
 
 // get a list of all products
-router.get('/', (req, res, next) => {
-    next(new Error("cannot get a list of all products"))
-    // res.send('getting a list of all products...');
+router.get('/', async (req, res, next) => {
+    // next(new Error("cannot get a list of all products"))
+    try {
+        const products = await Product.find({}, { __v: 0 });
+        
+        //// .find(query, projection)
+        // const products = await Product.find({}, { name: 1, price: 1, _id: 0 });
+        // const products = await Product.find({ price: 699 }, {});
+        res.send(products);
+    } catch (error) {
+        console.log(error.message);
+    }
 });
 
 // add new product
