@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 
 module.exports = () => {
     /*
         mongodb+srv://root:<password>@cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority
     */
-    mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/', {
-        dbName: 'RestAPI_youtube',
-        user: 'root',
-        pass: 'root',
+    mongoose.connect(process.env.MONGODB_URI, {
+        dbName: process.env.DB_NAME,
+        user: process.env.DB_USER,
+        pass: process.env.DB_PASS,
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
