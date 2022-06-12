@@ -18,11 +18,11 @@ PATCH http://localhost:3000/products/62a5526120f64026d1c98f69
 Content-Type: application/json
 
 {
-  "name": "iPhone 10",
+  "name": "iPhone 12 PRO",
   "price": 1799
 }
 ### to delete a single product by its id
-DELETE  http://localhost:3000/products/62a4b0bc6a2f5050a30ec4d9
+DELETE  http://localhost:3000/products/62a4ae6c7e3247c3338ab2df
 
 ### Page Not Found 404 Error Handle
 GET http://localhost:3000/
