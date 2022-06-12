@@ -6,16 +6,21 @@ POSt http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "iPhone 12 Pro",
+  "name": "iPhone 10 Pro",
   "price": 1149
 }
 
 ### to get a single product by its id
-GET http://localhost:3000/products/62a2f536fa4a0f0402ab587f
+GET http://localhost:3000/products/62a5526120f64026d1c98f69
 
 ### to update a single product by its id
-PATCH http://localhost:3000/products/id
+PATCH http://localhost:3000/products/62a5526120f64026d1c98f69
+Content-Type: application/json
 
+{
+  "name": "iPhone 10",
+  "price": 1799
+}
 ### to delete a single product by its id
 DELETE  http://localhost:3000/products/62a4b0bc6a2f5050a30ec4d9
 

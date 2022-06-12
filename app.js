@@ -4,15 +4,15 @@ const mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 /*
 mongodb+srv://root:<password>@cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority
 */
 mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/', {
-    dbName:'RestAPI_youtube',
-    user:'root',
-    pass:'root',
+    dbName: 'RestAPI_youtube',
+    user: 'root',
+    pass: 'root',
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -30,7 +30,7 @@ app.use('/products', ProductRoute);
 //     res.send(req.params);
 // });
 
-app.all('/test',(req,res)=>{
+app.all('/test', (req, res) => {
     console.log(req.body);
     res.send(req.body);
 });
