@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const createError = require('http-errors');
 
 const app = express();
@@ -7,18 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/*
-mongodb+srv://root:<password>@cluster0.jztuj.mongodb.net/?retryWrites=true&w=majority
-*/
-mongoose.connect('mongodb+srv://cluster0.jztuj.mongodb.net/', {
-    dbName: 'RestAPI_youtube',
-    user: 'root',
-    pass: 'root',
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('MongoDB Connected...');
-});
+// Initialixe DB
+require('./DB/config')();
 
 const ProductRoute = require('./Routes/Product.route');
 app.use('/products', ProductRoute);
@@ -40,7 +29,7 @@ app.use((req, res, next) => {
     // const err = new Error('Page Not Found');
     // err.status = 404;
     // next(err);
-    next(createError(404,"Not Found"));
+    next(createError(404, "Not Found"));
 });
 
 // Error Handler
