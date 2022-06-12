@@ -64,8 +64,15 @@ router.patch('/:id', (req, res, next) => {
 });
 
 // to delete a single product by its id
-router.delete('/:id', (req, res, next) => {
-    res.send('delete product by ID');
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const result = await Product.findByIdAndDelete(id);
+        console.log(result);
+        res.send(result);
+    } catch (error) {
+        console.log(error.message);
+    }
 });
 
 module.exports = router;

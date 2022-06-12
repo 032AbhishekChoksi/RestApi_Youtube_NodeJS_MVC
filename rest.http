@@ -17,7 +17,7 @@ GET http://localhost:3000/products/62a2f536fa4a0f0402ab587f
 PATCH http://localhost:3000/products/id
 
 ### to delete a single product by its id
-DELETE  http://localhost:3000/products/id
+DELETE  http://localhost:3000/products/62a4b0bc6a2f5050a30ec4d9
 
 ### Page Not Found 404 Error Handle
 GET http://localhost:3000/
