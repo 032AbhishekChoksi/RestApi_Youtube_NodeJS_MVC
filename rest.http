@@ -6,8 +6,8 @@ POSt http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "iPhone 10 Pro",
-  "price": 1149
+  "name": "Samsung A30",
+  "price": 2229
 }
 
 ### to get a single product by its id
@@ -22,7 +22,7 @@ Content-Type: application/json
   "price": 1799
 }
 ### to delete a single product by its id
-DELETE  http://localhost:3000/products/62a4ae6c7e3247c3338ab2df
+DELETE  http://localhost:3000/products/62a5ae7ea50952f01a8a1884
 
 ### Page Not Found 404 Error Handle
 GET http://localhost:3000/
