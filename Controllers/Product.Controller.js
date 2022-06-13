@@ -101,5 +101,55 @@ module.exports = {
             }
             next(error);
         }
+    },
+    softDeleteAProduct: async (req, res, next) => {
+        try {
+            const id = req.params.id;
+            const result = await Product.softDelete({_id:id});
+            if (!result) {
+                throw createError(404, 'Product does not exist.')
+            }
+            res.send(result);
+        } catch (error) {
+            console.log(error.message);
+            if (error instanceof mongoose.CastError) {
+                next(createError(400, 'Invalid Product id.'));
+                return;
+            }
+            next(error);
+        }
+    },
+    getAllDeletedProducts:async (req, res, next) => {
+        try {
+            const result = await Product.findDeleted();
+            if (!result) {
+                throw createError(404, 'Product does not exist.')
+            }
+            res.send(result);
+        } catch (error) {
+            console.log(error.message);
+            if (error instanceof mongoose.CastError) {
+                next(createError(400, 'Invalid Product id.'));
+                return;
+            }
+            next(error);
+        }
+    },
+    restoreAProduct:async (req, res, next) => {
+        try {
+            const id = req.params.id;
+            const result = await Product.restore({_id:id});
+            if (!result) {
+                throw createError(404, 'Product does not exist.')
+            }
+            res.send(result);
+        } catch (error) {
+            console.log(error.message);
+            if (error instanceof mongoose.CastError) {
+                next(createError(400, 'Invalid Product id.'));
+                return;
+            }
+            next(error);
+        }
     }
 }

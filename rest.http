@@ -6,8 +6,8 @@ POSt http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "Samsung A30",
-  "price": 2229
+  "name": "Iphone 12",
+  "price": 123
 }
 
 ### to get a single product by its id
@@ -47,3 +47,12 @@ POST http://localhost:3000/test
 Content-Type: application/x-www-form-urlencoded
 
 id=8766565656&name=imac
+
+### to Soft Delete a single product by its id
+POST  http://localhost:3000/products/62a744b74394b172a15694aa
+
+### get a list of all deletd products
+GET http://localhost:3000/products/trash
+
+### to Restore Deleted product by its id
+POST  http://localhost:3000/products/restore/62a744b74394b172a15694aa
